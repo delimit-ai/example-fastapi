@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 
-app = FastAPI(title="TaskForge API", version="1.0.0")
+app = FastAPI(title="TaskForge API", version="2.0.0")
 
 
 class Task(BaseModel):
@@ -11,14 +11,16 @@ class Task(BaseModel):
     title: str
     description: Optional[str] = None
     status: str = "pending"
+    priority: str
     created_at: datetime
-    assignee: Optional[str] = None
+    assigned_to: Optional[str] = None
 
 
 class TaskCreate(BaseModel):
     title: str
     description: Optional[str] = None
-    assignee: Optional[str] = None
+    priority: str
+    assigned_to: Optional[str] = None
 
 
 tasks_db = {}
@@ -55,15 +57,10 @@ def get_task(task_id: int):
     return tasks_db[task_id]
 
 
-@app.delete("/api/tasks/{task_id}", status_code=204)
-def delete_task(task_id: int):
-    """Delete a task by ID."""
-    if task_id not in tasks_db:
-        raise HTTPException(status_code=404, detail="Task not found")
-    del tasks_db[task_id]
+# DELETE endpoint removed
 
 
 @app.get("/api/health")
 def health():
     """Health check endpoint."""
-    return {"status": "healthy", "version": "1.0.0", "uptime": 42}
+    return {"status": "healthy", "version": "2.0.0", "uptime": "42 seconds"}

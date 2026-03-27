@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: TaskForge API
-  version: 1.0.0
+  version: 2.0.0
 paths:
   /api/tasks:
     get:
@@ -81,26 +81,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-    delete:
-      summary: Delete Task
-      description: Delete a task by ID.
-      operationId: delete_task_api_tasks__task_id__delete
-      parameters:
-      - name: task_id
-        in: path
-        required: true
-        schema:
-          type: integer
-          title: Task Id
-      responses:
-        '204':
-          description: Successful Response
-        '422':
-          description: Validation Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
   /api/health:
     get:
       summary: Health
@@ -140,19 +120,23 @@ components:
           type: string
           title: Status
           default: pending
+        priority:
+          type: string
+          title: Priority
         created_at:
           type: string
           format: date-time
           title: Created At
-        assignee:
+        assigned_to:
           anyOf:
           - type: string
           - type: 'null'
-          title: Assignee
+          title: Assigned To
       type: object
       required:
       - id
       - title
+      - priority
       - created_at
       title: Task
     TaskCreate:
@@ -165,14 +149,18 @@ components:
           - type: string
           - type: 'null'
           title: Description
-        assignee:
+        priority:
+          type: string
+          title: Priority
+        assigned_to:
           anyOf:
           - type: string
           - type: 'null'
-          title: Assignee
+          title: Assigned To
       type: object
       required:
       - title
+      - priority
       title: TaskCreate
     ValidationError:
       properties:
