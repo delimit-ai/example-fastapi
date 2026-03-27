@@ -1,5 +1,7 @@
 # TaskForge API
 
+[![API Governance](https://delimit-ai.github.io/badge/pass.svg)](https://github.com/marketplace/actions/delimit-api-governance)
+
 A minimal FastAPI app demonstrating [Delimit](https://delimit.ai) API governance.
 
 Every pull request is automatically checked for breaking API changes using the [Delimit GitHub Action](https://github.com/marketplace/actions/delimit-api-governance).
