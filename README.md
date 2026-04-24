@@ -1,3 +1,17 @@
+> [!IMPORTANT]
+> **This repository is archived.** Delimit consolidated framework examples into a single repo.
+>
+> **Where to go instead:**
+> - [quickstarts/fastapi](https://github.com/delimit-ai/quickstarts/tree/main/fastapi) — same example, now part of the framework gallery
+> - [quickstarts](https://github.com/delimit-ai/quickstarts) — Django · FastAPI · Spring Boot · Rails · Go · Express · NestJS
+> - [delimit-action-demo](https://github.com/delimit-ai/delimit-action-demo) — GitHub Action demo
+>
+> Install the [Delimit Action on Marketplace](https://github.com/marketplace/actions/delimit-api-governance) to add breaking-change detection to your CI.
+>
+> This repo stays public so existing links keep working.
+
+---
+
 # TaskForge API
 
 [![API Governance](https://delimit-ai.github.io/badge/pass.svg)](https://github.com/marketplace/actions/delimit-api-governance)
